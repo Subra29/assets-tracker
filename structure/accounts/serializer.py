@@ -28,12 +28,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         password2 = validated_data.pop('confirm_password')
         phone = validated_data.pop('phone')
 
-
+        # Checking if the phone number already exists
         if Employee.objects.filter(phone=phone).exists():
             raise serializers.ValidationError("Phone Number Already Exists !!")
         
+        # checking if the password and confirm password same 
         elif password1 != password2:
             raise serializers.ValidationError("Password & Confirm Password Mismatch")
+        
+        # saving the employee instance along with User Instanc 
         else: 
 
             # creatng the User first then assing to customer instance
