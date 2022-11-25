@@ -16,9 +16,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="PhonoCom",
+      title="Assets Tracker",
       default_version='v1',
-      description="Phonocom Backend API",
+      description="Assets Tracker Backend API",
       contact=openapi.Contact(email="contact@test.local"),
       license=openapi.License(name="BSD License"),
    ),
