@@ -13,7 +13,7 @@ urlpatterns = [
 
     ## apps  url config 
     path('',include('structure.accounts.urls')),
-    # path('',include('structure.codelist.urls')),
+    path('company/',include('structure.company.urls')),
 
     ## API authentication ENDPOINT
     path('api/token/', views.APILoginView.as_view(), name='token_obtain_pair'),
