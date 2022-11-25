@@ -138,7 +138,7 @@ class APILoginView(GenericAPIView):
         ## user can input username or phone number
         match_user = User.objects.filter(
             Q(username=data['username']) |
-            Q(profile__phone=data['username'])
+            Q(employee__phone=data['username'])
         )
         if match_user.exists():
             user = authenticate(username=match_user.first().username, password=data['password'])
@@ -158,7 +158,13 @@ class APILoginView(GenericAPIView):
 
 '''
 Employee Register 
-    view 
+    fields 
+    (
+    Full Name , 
+    Unique Phone Number,
+    password ,
+    confirm password 
+    )
 '''
 
 class RegisterAPIView(GenericAPIView):
@@ -168,10 +174,11 @@ class RegisterAPIView(GenericAPIView):
     queryset = Employee.objects.filter(is_active=True)
 
     def post(self,request):
+
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-            return Response({"ok":"ok"})
+            return Response({"Success":"Employee Created Successfully !"})
         else:
             return Response(serializer.error_messages)
 
