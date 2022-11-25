@@ -5,14 +5,16 @@ from structure.accounts.views import (
     LoginView,
     RegisterView,
     LogoutView,
-    CheckPhoneNumber
+    CheckPhoneNumber,
+    RegisterAPIView
 )
 
 
 urlpatterns = [
     path('login/',LoginView.as_view(),name="login"),
     path('sign-up/',RegisterView.as_view(),name='register'),
-    path('logout/',LogoutView.as_view(),name='logout')
+    path('logout/',LogoutView.as_view(),name='logout'),
+    path('register/',RegisterAPIView.as_view(),name='register')
 
 ]
 
