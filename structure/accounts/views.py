@@ -14,7 +14,8 @@ from rest_framework.response import Response
 
 from structure.accounts.models.base import User
 from structure.accounts.models.profile import Profile
-from structure.accounts.serializer import LoginSerializer
+from structure.accounts.models.employee import Employee
+from structure.accounts.serializer import LoginSerializer,RegisterSerializer
 
 
 ## Login view to our system 
@@ -154,4 +155,23 @@ class APILoginView(GenericAPIView):
             'refresh_token':str(refresh)
         },status=status.HTTP_200_OK)
 
+
+'''
+Employee Register 
+    view 
+'''
+
+class RegisterAPIView(GenericAPIView):
+    permission_classes = ()
+    authentication_classes = ()
+    serializer_class =  RegisterSerializer
+    queryset = Employee.objects.filter(is_active=True)
+
+    def post(self,request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response({"ok":"ok"})
+        else:
+            return Response(serializer.error_messages)
 

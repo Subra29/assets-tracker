@@ -9,15 +9,15 @@ class Company(TimeStampMixin):
 
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     admin = models.ForeignKey(
-        "accounts.Profile",on_delete=models.CASCADE,null=True,
-        related_name = "profile_input"
+        "accounts.Employee",on_delete=models.CASCADE,null=True,
+        related_name = "company_admin"
     )
     name = models.CharField(
         max_length=200, null=True
     )
     info = models.TextField(blank=True)
     employees = models.ManyToManyField(
-        'accounts.Profile',related_name='employees',
+        'accounts.Employee',related_name='employees',
         through='EmployeeOfCompany'
     )
 
@@ -38,7 +38,7 @@ class EmployeeOfCompany(TimeStampMixin):
         related_name = "company"
     )
     employee = models.ForeignKey(
-        "accounts.Profile",on_delete=models.CASCADE,null=True,
+        "accounts.Employee",on_delete=models.CASCADE,null=True,
         related_name = "employee"
     )
     
@@ -85,7 +85,7 @@ class DeligateAssetstoEmployee(TimeStampMixin):
         related_name = "assigned_assets"
     )
     employee = models.ForeignKey(
-        "accounts.Profile",on_delete=models.CASCADE,null=True,
+        "accounts.Employee",on_delete=models.CASCADE,null=True,
         related_name = "assigned_employee"
     )
 
