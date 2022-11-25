@@ -9,7 +9,6 @@ from rest_framework.generics import GenericAPIView
 
 from structure.company.models import (
     Company,
-    CompanyAssets,
     EmployeeOfCompany
 )
 
@@ -72,9 +71,5 @@ class AssignEmployeetoComapnyView(GenericAPIView):
             return Response(company_employee_obj_api.error_messages)
 
         
-## Assign Assets to Company Employee
-
-class AssignAssetstoEmployee(GenericAPIView):
-    pass 
 
     

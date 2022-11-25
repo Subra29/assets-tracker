@@ -7,7 +7,6 @@ from mainConfig.models.mixin import TimeStampMixin
 
 class Company(TimeStampMixin):
 
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     admin = models.ForeignKey(
         "accounts.Employee",on_delete=models.CASCADE,null=True,
         related_name = "company_admin"
