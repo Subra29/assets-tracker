@@ -1,18 +1,17 @@
-<h1 align="center"> Coding Pari Na </h1><br>
-<p align="center"> Technical Documention </p>
+<h1 align="center"> Project Assets Tracker </h1><br>
 <h6 align="Center">
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
- [![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com) [![Visual Studio](https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label)](https://visualstudio.microsoft.com) [![HTMX - version 1.8.4](https://img.shields.io/badge/HTMX-version_1.8.4-2ea44f)](https://htmx.org/) [![Made with  - JavaScripts](https://img.shields.io/badge/Made_with_-JavaScripts-blueviolet)](https://www.javascript.com/) [![Bootstrap - 4.4.1](https://img.shields.io/badge/Bootstrap-4.4.1-ff69b4)](https://getbootstrap.com/docs/3.4/)
+ [![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com) [![Visual Studio](https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label)](https://visualstudio.microsoft.com)
 
 </h6>
 
 <br>
 
 <h4 align="center">
-<a href="https://github.com/yeazin/Project-Coding-Pari-Na#-project-installation-"> Project Installation</a> | 
-<a href="https://github.com/yeazin/Project-Coding-Pari-Na#project-flow"> Project Flow </a>
-|<a href="https://github.com/yeazin/Project-Coding-Pari-Na#-project-documention-"> Project Documention </a>
+<a href="https://github.com/yeazin/assets-tracker#-project-installation-"> Project Installation</a> | 
+<a href="https://github.com/yeazin/assets-tracker#project-flow"> Project Flow </a>
+|<a href="https://github.com/yeazin/assets-tracker#-project-documention-"> Project Documention </a>
 
 </h4> 
 
@@ -25,7 +24,7 @@
 #### Clone the repository using the following command
 
 ```bash
-git clone https://github.com/yeazin/Project-Coding-Pari-Na.git
+git clone https://github.com/yeazin/assets-tracker.git
 # After cloning, move into the directory 
 # having the project files 
 ```
@@ -80,24 +79,6 @@ Now we are good to Go . We can check the [127.0.0.1:8000](http://127.0.0.1:8000)
 <h2 align="center">Project Flow</h2>
 <br>
 
-#### Live Project INFO
-
-<br>
-"Project Coding Pari Na" will be found to test in online .
-
-Project URL : https://yeazin.pythonanywhere.com/ <br>
-Project Admin Panel URL : https://yeazin.pythonanywhere.com/admin/
-<br>
-```bash 
-    Admin Login credentials 
-
-    username : sadmin
-    password : 123456
-
-    NB : You Can also use the Credential to log in client side
-
-```
-<br>
 
 #### Project Structure 
 <br>
@@ -123,38 +104,27 @@ Project Admin Panel URL : https://yeazin.pythonanywhere.com/admin/
             |-- __init.py
             |__ models/ # database folder  
                 |-- base.py # Base User config
-                |-- profile.py # profile models 
+                |-- employee.py # employee models 
+            |__ tests / # tests folder 
+                |-- __init__.py
+                |-- urls_tests.py # URLs test case
             |-- views 
             |-- serializer.py # API file
             |-- urls.py # accounts URL file)
             |-- admin.py
 
-        |__ codelist/
+        |__ company/
             |-- __init__.py
-            |-- models.py # Code list database file
-            |-- views 
+            |-- models.py # Company database file
+            |__ views # Views folder
+                |-- company view # company views
+                |-- assets view # asstes views 
+            |__ tests / # tests folder 
+                |-- __init__.py
+                |-- urls_tests.py # URLs test case
             |-- serializer.py # API file
             |-- urls.py # Code list URL file)
             |-- admin.py
-
-    static/ # statict folder (css,js)
-        |__ css/
-            |-- bootstrap.css 
-        |__ js/
-            |-- htmx.js
-            |-- custom_js.js
-            |-- search_value.js
-    
-    templates/ # HTML templates folder
-        |__ base/ # base html folder
-            |-- base.html
-            |-- header.html
-        |__ list/
-            |-- list_create.html
-            |-- single_value.html
-        |__ user/
-            |-- login.html
-            |-- sign-up.html
 
     |-- manage.py
     |-- .env  
@@ -168,9 +138,82 @@ Project Admin Panel URL : https://yeazin.pythonanywhere.com/admin/
 
 <h2 align="center"> Project Documention </h2>
 
-#### Thanks for Tagging alone with the Technical Documention , Read the [Project Documtion here](https://github.com/yeazin/Project-Coding-Pari-Na/tree/main/docs#-coding-pari-na-documention-) 
 
-Project Documention URL :  [https://projectcodingparina.docs](https://github.com/yeazin/Project-Coding-Pari-Na/tree/main/docs#-coding-pari-na-documention-)
+#### Company Module 
+<br>
+
+```bash 
+
+    Employee and Profiles 
+        - Employee can be registered to the system by following fields
+            - Full Name
+            - Unique Phone Number
+            - password 
+            - confirm password
+
+    Company Registration 
+        - Company can be registered with their name 
+        - During the Registration company will have an Admin
+        - Admin can add Employee to the company
+        - Validation added when duplicate employee occurs 
+        - ALL CRUD operations 
+
+
+```
+<br>
+
+#### Assets Tracking Module
+<br>
+
+```bash 
+
+    Company Assets
+        - Company can add assets as many as want.
+        - Fields are
+            - Deivice Name,Devce Type
+        - All CRUD operations included 
+    
+    Deligate Assets to Employee
+        - Admin of the company can assign asset to any employee
+        - Log will be saved when assets are checking out and return.
+        - Date and time will be saved 
+        - Log Message can be added 
+
+```
+<br>
+
+
+#### Tracking Assets Module 
+<br>
+
+```bash 
+
+    - All assets log can be viewed by the admin of the company. 
+    - Single Asset log can be also viewed by the admin 
+    - In a single assets the following fields will be shown 
+        - Company Name 
+        - Asset name 
+        - Asset Type
+        - Employee Name
+        - Asset checking out date 
+        - Asset checking out condition Log 
+        - Asset return date 
+        - Asset return condition log 
+
+
+```
+<br>
+
+#### Test Case 
+<br>
+
+```bash 
+
+    All the URLs TestCase is inclued in each app testing folder
+
+```
+
+#### Thanks for Tagging alone with the  Documention 
 
 Wish you a Great Time ...
 
