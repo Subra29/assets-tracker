@@ -9,7 +9,8 @@ from structure.company.views.assets_view import (
     CompanyAssetsView,
     AssignAssetstoEmployeeView,
     SingleAssignAssetstoEmployeeView,
-    DeviceLogView
+    DeviceLogView,
+    SingleDeviceLogView
 )
 
 urlpatterns = [
@@ -18,5 +19,6 @@ urlpatterns = [
     path('assets/',CompanyAssetsView.as_view()),
     path('assign/assets/',AssignAssetstoEmployeeView.as_view()),
     path('assign/assets/<uuid:pk>/',SingleAssignAssetstoEmployeeView.as_view()),
-    path('assets/log/',DeviceLogView.as_view())
+    path('assets/log/',DeviceLogView.as_view()),
+    path('assets/log/<uuid:pk>/',SingleDeviceLogView.as_view())
 ]

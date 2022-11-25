@@ -1,4 +1,4 @@
-import uuid
+
 from django.db import models
 from mainConfig.models.mixin import TimeStampMixin
 
@@ -49,7 +49,7 @@ class EmployeeOfCompany(TimeStampMixin):
         verbose_name_plural = "Employee of Company List"
 
 
-## Company Assets 
+## Company Assets Database
 
 class CompanyAssets(TimeStampMixin):
 
@@ -75,7 +75,7 @@ class CompanyAssets(TimeStampMixin):
         verbose_name_plural = "Company Assets"
 
 
-## Company Assets Deligate to Employee
+## Company Assets Deligate to Employee Database 
 
 class DeligateAssetstoEmployee(TimeStampMixin):
 

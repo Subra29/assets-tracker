@@ -74,7 +74,8 @@ class AssignAssetstoEmployeeView(GenericAPIView):
                 status=status.HTTP_406_NOT_ACCEPTABLE)
         
 
-
+## Single view of Assets assigned to Employee
+        
 class SingleAssignAssetstoEmployeeView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = ()
     authentication_classes = ()
@@ -82,9 +83,20 @@ class SingleAssignAssetstoEmployeeView(generics.RetrieveUpdateDestroyAPIView):
     queryset = DeligateAssetstoEmployee.objects.filter(is_active=True)
 
 
-
+## Device log API view
+    
 class DeviceLogView(generics.ListAPIView):
     permission_classes = ()
     authentication_classes = ()
     serializer_class =  DeviceLogSerializer
     queryset = CompanyAssets.objects.filter(is_active=True)
+
+
+## Single Device log view
+
+class SingleDeviceLogView(generics.RetrieveAPIView):
+    permission_classes = ()
+    authentication_classes = ()
+    serializer_class =  DeviceLogSerializer
+    queryset = CompanyAssets.objects.filter(is_active=True)
+    

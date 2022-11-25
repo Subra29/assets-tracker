@@ -1,0 +1,1 @@
+from structure.accounts.tests.urls_tests import *
