@@ -1,0 +1,1 @@
+from structure.company.tests.urls_tests import *
