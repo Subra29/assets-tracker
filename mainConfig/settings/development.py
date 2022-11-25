@@ -19,6 +19,7 @@ DATABASES = {
 
 INSTALLED_APPS += [
     'rest_framework',
+    'drf_yasg',
     
     'structure.accounts.apps.AccountsConfig',
     'structure.company.apps.CompanyConfig'
