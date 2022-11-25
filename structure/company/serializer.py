@@ -18,10 +18,13 @@ from structure.company.models import (
 class CompanySerialzier(serializers.ModelSerializer):
     
     admin = serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all())
+    admin_name = serializers.CharField(source='admin.full_name',read_only=True)
+    
     class Meta:
         model = Company
         fields = [
             'id',
+            'admin_name',
             'admin',
             'name',
             'info',
