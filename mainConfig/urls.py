@@ -19,7 +19,7 @@ schema_view = get_schema_view(
       title="Assets Tracker",
       default_version='v1',
       description="Assets Tracker Backend API",
-      contact=openapi.Contact(email="contact@test.local"),
+      contact=openapi.Contact(email="Anthony.Castillo@gov.nt.ca"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
